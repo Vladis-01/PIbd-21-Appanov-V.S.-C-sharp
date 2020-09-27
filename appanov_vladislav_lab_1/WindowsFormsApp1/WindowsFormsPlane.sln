@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsPlane", "WindowsFormsPlane.csproj", "{FEF6B263-514E-410C-9E6F-B303CDBD9AD3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEF6B263-514E-410C-9E6F-B303CDBD9AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEF6B263-514E-410C-9E6F-B303CDBD9AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEF6B263-514E-410C-9E6F-B303CDBD9AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEF6B263-514E-410C-9E6F-B303CDBD9AD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DA52D3EA-5CC0-420F-A06E-9F71C1009A23}
+	EndGlobalSection
+EndGlobal
