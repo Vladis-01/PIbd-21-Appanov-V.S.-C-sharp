@@ -1,0 +1,10 @@
+C:\Users\Пользователь\source\repos\WindowsFormsPlane\WindowsFormsPlane\bin\Debug\WindowsFormsPlane.exe.config
+C:\Users\Пользователь\source\repos\WindowsFormsPlane\WindowsFormsPlane\bin\Debug\WindowsFormsPlane.exe
+C:\Users\Пользователь\source\repos\WindowsFormsPlane\WindowsFormsPlane\bin\Debug\WindowsFormsPlane.pdb
+C:\Users\Пользователь\source\repos\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.csprojAssemblyReference.cache
+C:\Users\Пользователь\source\repos\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.FormPlane.resources
+C:\Users\Пользователь\source\repos\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.Properties.Resources.resources
+C:\Users\Пользователь\source\repos\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.csproj.GenerateResource.cache
+C:\Users\Пользователь\source\repos\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.csproj.CoreCompileInputs.cache
+C:\Users\Пользователь\source\repos\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.exe
+C:\Users\Пользователь\source\repos\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.pdb
