@@ -100,7 +100,6 @@ namespace WindowsFormsPlane
                  pointNose1,
                  pointNose2,
                  pointNose3,
-
              };
             g.FillPolygon(myBrush, PointsNose);
         }

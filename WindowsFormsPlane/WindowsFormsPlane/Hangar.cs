@@ -12,10 +12,16 @@ namespace WindowsFormsPlane
         /// <summary>
         /// Массив объектов, которые храним
         /// </summary>
-        private readonly T[] _places;
+        private readonly List<T> _places;
         /// <summary>
         /// Ширина окна отрисовки
         /// </summary>
+   
+        /// <summary>
+        /// Максимальное количество мест на парковке
+        /// </summary>
+        private readonly int _maxCount;
+
         private readonly int pictureWidth;
         /// <summary>
         /// Высота окна отрисовки
@@ -29,16 +35,17 @@ namespace WindowsFormsPlane
         /// Размер парковочного места (высота)
         /// </summary>
         private readonly int _placeSizeHeight = 110;
-        /// <summary>
-        /// Конструктор
-        /// </summary>
-        /// <param name="picWidth">Рамзер парковки - ширина</param>
-        /// <param name="picHeight">Рамзер парковки - высота</param>
+ /// <summary>
+ /// Конструктор
+ /// </summary>
+ /// <param name="picWidth">Рамзер парковки - ширина</param>
+ /// <param name="picHeight">Рамзер парковки - высота</param>
         public Hangar(int picWidth, int picHeight)
         {
             int width = picWidth / _placeSizeWidth;
             int height = picHeight / _placeSizeHeight;
-            _places = new T[width * height];
+            _maxCount = width * height;
+            _places = new List<T>();
             pictureWidth = picWidth;
             pictureHeight = picHeight;
         }
@@ -52,54 +59,41 @@ namespace WindowsFormsPlane
         /// <returns></returns>
         public static bool operator +(Hangar<T> h, T plane)
         {
-            for (int i = 0; i < h._places.Length; i++)
+            if(h._places.Count >= h._maxCount)
             {
-                if (h._places[i] == null)
-                {
-                    h._places[i] = plane;
-                    return true;
-                }
-            }
-            return false;
-            // Прописать логику для сложения
+                return false;
+            }            
+            h._places.Add(plane);
+            return true;
         }
-        /// <summary>
-        /// Перегрузка оператора вычитания
-        /// Логика действия: с парковки забираем автомобиль
-        /// </summary>
-        /// <param name="p">Парковка</param>
-        /// <param name="index">Индекс места, с которого пытаемся извлечь объект</param>
-        /// <returns></returns>
-        public static T operator -(Hangar<T> h, int index)
+
+    /// <summary>
+    /// Перегрузка оператора вычитания
+    /// Логика действия: с парковки забираем автомобиль
+    /// </summary>
+    /// <param name="p">Парковка</param>
+    /// <param name="index">Индекс места, с которого пытаемся извлечь объект</param>
+    /// <returns></returns>
+    public static T operator -(Hangar<T> h, int index)
+    {
+        if (index < -1 || index > h._places.Count)
         {
-            if(index < 0 || h._places.Length <= index)
-            {
-                return null;
-            }
-            T cash = h._places[index];
-            h._places[index] = null;
-            return cash;
-            // Прописать логику для вычитания
+            return null;
         }
-        /// <summary>
-        /// Метод отрисовки парковки
-        /// </summary>
-        /// <param name="g"></param>
-        public void Draw(Graphics g)
+        T plane = h._places[index];
+        h._places.RemoveAt(index);
+        return plane;
+    }
+
+    /// <summary>
+    /// Метод отрисовки парковки
+    /// </summary>
+    /// <param name="g"></param>
+    public void Draw(Graphics g)
         {
             DrawMarking(g);
-
-            for (int i = 0; i < _places.Length; ++i)
+            for (int i = 0; i < _places.Count; ++i)
             {
-                while (_places[i] == null)
-                {
-                    i++;
-                    if (i == _places.Length)
-                    {
-                        return;
-                    }
-                }
-                
                 _places[i].SetPosition(4 + i / 4 * _placeSizeWidth + 4, i % 4 *
                _placeSizeHeight, pictureWidth, pictureHeight);
                 _places[i].DrawTransport(g);

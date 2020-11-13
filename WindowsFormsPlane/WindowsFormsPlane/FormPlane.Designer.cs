@@ -137,7 +137,7 @@
 
         #endregion
 
-        public System.Windows.Forms.PictureBox pictureBoxPlane;
+        private System.Windows.Forms.PictureBox pictureBoxPlane;
         private System.Windows.Forms.Button buttonCreateBombPlane;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonUp;

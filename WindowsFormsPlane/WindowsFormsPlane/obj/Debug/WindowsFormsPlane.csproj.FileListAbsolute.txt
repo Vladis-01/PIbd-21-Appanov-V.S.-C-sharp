@@ -26,24 +26,24 @@ E:\WindowsFormsPlane\WindowsFormsPlane\bin\Debug\WindowsFormsPlane.exe.config
 E:\WindowsFormsPlane\WindowsFormsPlane\bin\Debug\WindowsFormsPlane.exe
 E:\WindowsFormsPlane\WindowsFormsPlane\bin\Debug\WindowsFormsPlane.pdb
 E:\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.csprojAssemblyReference.cache
-E:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.csprojAssemblyReference.cache
-E:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.FormHangar.resources
-E:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.FormPlane.resources
-E:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.Properties.Resources.resources
-E:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.csproj.GenerateResource.cache
-E:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.csproj.CoreCompileInputs.cache
-E:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.exe
-E:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.pdb
-E:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\bin\Debug\WindowsFormsPlane.exe.config
-E:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\bin\Debug\WindowsFormsPlane.exe
-E:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\bin\Debug\WindowsFormsPlane.pdb
-F:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\bin\Debug\WindowsFormsPlane.exe.config
-F:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\bin\Debug\WindowsFormsPlane.exe
-F:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\bin\Debug\WindowsFormsPlane.pdb
-F:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.csprojAssemblyReference.cache
-F:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.FormHangar.resources
-F:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.FormPlane.resources
-F:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.Properties.Resources.resources
-F:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.csproj.GenerateResource.cache
-F:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.exe
-F:\Лаб 3 ТП\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.pdb
+F:\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.csprojAssemblyReference.cache
+F:\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.FormHangar.resources
+F:\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.FormPlane.resources
+F:\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.Properties.Resources.resources
+F:\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.csproj.GenerateResource.cache
+F:\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.exe
+F:\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.pdb
+F:\WindowsFormsPlane\WindowsFormsPlane\bin\Debug\WindowsFormsPlane.exe.config
+F:\WindowsFormsPlane\WindowsFormsPlane\bin\Debug\WindowsFormsPlane.exe
+F:\WindowsFormsPlane\WindowsFormsPlane\bin\Debug\WindowsFormsPlane.pdb
+E:\Лаб 4\WindowsFormsPlane\WindowsFormsPlane\bin\Debug\WindowsFormsPlane.exe.config
+E:\Лаб 4\WindowsFormsPlane\WindowsFormsPlane\bin\Debug\WindowsFormsPlane.exe
+E:\Лаб 4\WindowsFormsPlane\WindowsFormsPlane\bin\Debug\WindowsFormsPlane.pdb
+E:\Лаб 4\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.csprojAssemblyReference.cache
+E:\Лаб 4\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.FormHangar.resources
+E:\Лаб 4\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.FormPlane.resources
+E:\Лаб 4\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.Properties.Resources.resources
+E:\Лаб 4\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.csproj.GenerateResource.cache
+E:\Лаб 4\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.exe
+E:\Лаб 4\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.pdb
+E:\Лаб 4\WindowsFormsPlane\WindowsFormsPlane\obj\Debug\WindowsFormsPlane.csproj.CoreCompileInputs.cache
