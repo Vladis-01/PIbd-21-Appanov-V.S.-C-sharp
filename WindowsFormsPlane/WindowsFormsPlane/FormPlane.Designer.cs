@@ -28,24 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonCreate = new System.Windows.Forms.Button();
+            this.buttonCreateBombPlane = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
             this.pictureBoxPlane = new System.Windows.Forms.PictureBox();
+            this.buttonCreatePlane = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlane)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonCreate
+            // buttonCreateBombPlane
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(25, 12);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(114, 29);
-            this.buttonCreate.TabIndex = 1;
-            this.buttonCreate.Text = "Создать";
-            this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+            this.buttonCreateBombPlane.Location = new System.Drawing.Point(181, 10);
+            this.buttonCreateBombPlane.Name = "buttonCreateBombPlane";
+            this.buttonCreateBombPlane.Size = new System.Drawing.Size(169, 29);
+            this.buttonCreateBombPlane.TabIndex = 1;
+            this.buttonCreateBombPlane.Text = "Создать бомбандировщик";
+            this.buttonCreateBombPlane.UseVisualStyleBackColor = true;
+            this.buttonCreateBombPlane.Click += new System.EventHandler(this.buttonCreateBomberPlane_Click);
             // 
             // buttonDown
             // 
@@ -104,20 +105,31 @@
             this.pictureBoxPlane.TabIndex = 0;
             this.pictureBoxPlane.TabStop = false;
             // 
+            // buttonCreatePlane
+            // 
+            this.buttonCreatePlane.Location = new System.Drawing.Point(42, 10);
+            this.buttonCreatePlane.Name = "buttonCreatePlane";
+            this.buttonCreatePlane.Size = new System.Drawing.Size(114, 31);
+            this.buttonCreatePlane.TabIndex = 6;
+            this.buttonCreatePlane.Text = "Создать самолет";
+            this.buttonCreatePlane.UseVisualStyleBackColor = true;
+            this.buttonCreatePlane.Click += new System.EventHandler(this.buttonCreatePlane_Click);
+            // 
             // FormPlane
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 461);
+            this.Controls.Add(this.buttonCreatePlane);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.buttonLeft);
-            this.Controls.Add(this.buttonCreate);
+            this.Controls.Add(this.buttonCreateBombPlane);
             this.Controls.Add(this.pictureBoxPlane);
             this.Name = "FormPlane";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "FormPlane";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlane)).EndInit();
             this.ResumeLayout(false);
 
@@ -126,11 +138,12 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxPlane;
-        private System.Windows.Forms.Button buttonCreate;
+        private System.Windows.Forms.Button buttonCreateBombPlane;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonDown;
+        private System.Windows.Forms.Button buttonCreatePlane;
     }
 }
 

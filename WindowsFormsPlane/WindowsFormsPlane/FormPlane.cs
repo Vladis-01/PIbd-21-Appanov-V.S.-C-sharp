@@ -12,7 +12,7 @@ namespace WindowsFormsPlane
 {
 	public partial class FormPlane : Form
 	{
-		private BomberPlane plane;
+		private ITransport plane;
 		/// <summary>
 		/// Конструктор
 		/// </summary>
@@ -38,7 +38,7 @@ namespace WindowsFormsPlane
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 
-		private void buttonCreate_Click(object sender, EventArgs e)
+		private void buttonCreateBomberPlane_Click(object sender, EventArgs e)
 		{
 			Random rnd = new Random();
 			plane = new BomberPlane(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue, Color.Black,
@@ -74,6 +74,16 @@ namespace WindowsFormsPlane
 					break;
 			}
 			Draw();
+		}
+
+        private void buttonCreatePlane_Click(object sender, EventArgs e)
+        {
+			Random rnd = new Random();
+			plane = new Car(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue);
+            plane.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxPlane.Width,
+            pictureBoxPlane.Height);
+			Draw();
+
 		}
 	}
 }
