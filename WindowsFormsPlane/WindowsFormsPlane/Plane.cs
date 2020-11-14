@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 namespace WindowsFormsPlane
 {
-    public class Plane : Vehicle
+    public class Car : Vehicle
     {
         /// <summary>
         /// Ширина отрисовки автомобиля
@@ -17,7 +17,7 @@ namespace WindowsFormsPlane
         /// <param name="maxSpeed">Максимальная скорость</param>
         /// <param name="weight">Вес автомобиля</param>
         /// <param name="mainColor">Основной цвет кузова</param>
-        public Plane(int maxSpeed, float weight, Color mainColor)
+        public Car(int maxSpeed, float weight, Color mainColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
@@ -31,7 +31,7 @@ namespace WindowsFormsPlane
         /// <param name="mainColor">Основной цвет кузова</param>
         /// <param name="carWidth">Ширина отрисовки автомобиля</param>
         /// <param name="carHeight">Высота отрисовки автомобиля</param>
-        protected Plane(int maxSpeed, float weight, Color mainColor, int planeWidth, int
+        protected Car(int maxSpeed, float weight, Color mainColor, int planeWidth, int
        planeHeight)
         {
             MaxSpeed = maxSpeed;
