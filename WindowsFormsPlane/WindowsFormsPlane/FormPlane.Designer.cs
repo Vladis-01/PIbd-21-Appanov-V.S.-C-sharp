@@ -129,7 +129,7 @@
             this.Controls.Add(this.pictureBoxPlane);
             this.Name = "FormPlane";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "FormPlane";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlane)).EndInit();
             this.ResumeLayout(false);
 
@@ -137,7 +137,7 @@
 
         #endregion
 
-        public System.Windows.Forms.PictureBox pictureBoxPlane;
+        private System.Windows.Forms.PictureBox pictureBoxPlane;
         private System.Windows.Forms.Button buttonCreateBombPlane;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonUp;

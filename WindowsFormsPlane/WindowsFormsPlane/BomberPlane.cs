@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsPlane
 {
-    class BomberPlane : Plane
+    class BomberPlane : Car
     {
         
         public Color DopColor { private set; get; }

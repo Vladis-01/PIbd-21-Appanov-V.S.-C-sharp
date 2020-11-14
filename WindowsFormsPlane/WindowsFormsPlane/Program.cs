@@ -16,7 +16,7 @@ namespace WindowsFormsPlane
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormHangar());
+            Application.Run(new FormPlane());
         }
     }
 }
