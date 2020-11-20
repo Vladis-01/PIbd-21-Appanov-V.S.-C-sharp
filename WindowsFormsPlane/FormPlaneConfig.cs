@@ -31,6 +31,8 @@ namespace WindowsFormsPlane
                     ((Panel)item).MouseDown += panelColor_MouseDown;
                 }
             }
+
+
             buttonCancel.Click += (object sender, EventArgs e) => { Close(); };
         }
 
@@ -104,26 +106,18 @@ namespace WindowsFormsPlane
 
         private void labelPlane_MouseDown(object sender, MouseEventArgs e)
         {
-            labelPlane.DoDragDrop(labelPlane.Text, DragDropEffects.Move |
-           DragDropEffects.Copy);
+            ((Label)sender).DoDragDrop(((Label)sender).Name, DragDropEffects.Move | DragDropEffects.Copy);
         }
-
-        private void labelBomberPlane_MouseDown(object sender, MouseEventArgs e)
-        {
-            labelBomberPlane.DoDragDrop(labelBomberPlane.Text, DragDropEffects.Move |
-           DragDropEffects.Copy);
-        }
-
         private void panelPlane_DragDrop(object sender, DragEventArgs e)
         {
             switch (e.Data.GetData(DataFormats.Text).ToString())
             {
-                case "Обычный самолет":
+                case "labelPlane":
 
                     plane = new Plane((int)numericUpDownMaxSpeed.Value,
                    (int)numericUpDownWeight.Value, Color.White);
                     break;
-                case "Бомбардировщик":
+                case "labelBomberPlane":
                     plane = new BomberPlane((int)numericUpDownMaxSpeed.Value,
                    (int)numericUpDownWeight.Value, Color.White, Color.White,
                     checkBoxBombs.Checked, checkBoxTurboEngine.Checked);

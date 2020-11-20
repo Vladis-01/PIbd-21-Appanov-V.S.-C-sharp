@@ -43,9 +43,9 @@ pictureBoxHangar.Height);
             }
             else if (listBoxHangars.Items.Count > 0 && index > -1 && index <
            listBoxHangars.Items.Count)
-            {
-                listBoxHangars.SelectedIndex = index;
-            }
+                 {
+                    listBoxHangars.SelectedIndex = index;
+                 }
         }
 
         /// <summary>
@@ -63,6 +63,7 @@ pictureBoxHangar.Height);
             }
 
         }
+
         /// <summary>
         /// Обработка нажатия кнопки "Добавить парковку"
         /// </summary>
@@ -120,33 +121,6 @@ pictureBoxHangar.Height);
             }
         }
 
-        private void buttonSetBomberPlane_Click(object sender, EventArgs e)
-        {
-            if (listBoxHangars.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                ColorDialog dialogDop = new ColorDialog();
-                    if (dialogDop.ShowDialog() == DialogResult.OK)
-                    {
-                        var car = new BomberPlane(100, 1000, dialog.Color,
-                       dialogDop.Color, true, true);
-                        if (hangarCollection[listBoxHangars.SelectedItem.ToString()]
-                       + car)
-                        {
-                            Draw();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Парковка переполнена");
-                        }
-                    }
-                }
-            }
-
-        }
-
         private void buttonPickUpPlane_Click(object sender, EventArgs e)
         {
             if (listBoxHangars.SelectedIndex > -1 && maskedTextBoxPlace.Text != "")
@@ -173,6 +147,42 @@ pictureBoxHangar.Height);
         private void listBoxHangars_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             Draw();
+        }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (hangarCollection.SaveData(saveFileDialog.FileName))
+                {
+                    MessageBox.Show("Сохранение прошло успешно", "Результат",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не сохранилось", "Результат",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (hangarCollection.LoadData(openFileDialog.FileName))
+                {
+                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
+                   MessageBoxIcon.Information);
+                    ReloadLevels();
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

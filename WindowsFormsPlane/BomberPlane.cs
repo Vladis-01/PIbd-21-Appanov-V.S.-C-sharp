@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace WindowsFormsPlane
 {
     class BomberPlane : Plane
-    {       
+    {     
         public Color DopColor { private set; get; }
         /// <summary>
         /// Признак наличия переднего спойлера
@@ -28,6 +28,21 @@ namespace WindowsFormsPlane
             Bombs = bombs;
             TurboEngine = turboEngine;
         }
+
+        public BomberPlane(string info) : base(info)
+        {
+            string[] strs = info.Split(separator);
+            if (strs.Length == 6)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                Bombs = Convert.ToBoolean(strs[4]);
+                TurboEngine = Convert.ToBoolean(strs[5]);
+            }
+        }
+
         /// <summary>
         /// Установка позиции автомобиля
         /// </summary>
@@ -91,6 +106,7 @@ namespace WindowsFormsPlane
                 g.FillPolygon(myBrush2, PointsEngine1);
                 g.FillPolygon(myBrush2, PointsEngine2);
             }
+
             base.DrawTransport(g);
         }
 
@@ -101,6 +117,12 @@ namespace WindowsFormsPlane
         public void SetDopColor(Color color)
         {
             DopColor = color;
+        }
+
+        public override string ToString()
+        {
+            return
+           $"{base.ToString()}{separator}{DopColor.Name}{separator}{Bombs}{separator}{TurboEngine}";
         }
     }
 }

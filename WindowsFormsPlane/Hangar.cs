@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsPlane
 {
-	class Hangar<T> where T : class, ITransport
+    class Hangar<T> where T : class, ITransport
     {
         /// <summary>
         /// Массив объектов, которые храним
@@ -16,11 +16,11 @@ namespace WindowsFormsPlane
         /// <summary>
         /// Ширина окна отрисовки
         /// </summary>
-   
+
         /// <summary>
         /// Максимальное количество мест на парковке
         /// </summary>
-        private readonly int _maxCount = 12;
+        private readonly int _maxCount;
 
         private readonly int pictureWidth;
         /// <summary>
@@ -35,18 +35,19 @@ namespace WindowsFormsPlane
         /// Размер парковочного места (высота)
         /// </summary>
         private readonly int _placeSizeHeight = 110;
- /// <summary>
- /// Конструктор
- /// </summary>
- /// <param name="picWidth">Рамзер парковки - ширина</param>
- /// <param name="picHeight">Рамзер парковки - высота</param>
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="picWidth">Рамзер парковки - ширина</param>
+        /// <param name="picHeight">Рамзер парковки - высота</param>
         public Hangar(int picWidth, int picHeight)
         {
             int width = picWidth / _placeSizeWidth;
             int height = picHeight / _placeSizeHeight;
-            _places = new List<T>();
+            _maxCount = width * height;
             pictureWidth = picWidth;
             pictureHeight = picHeight;
+            _places = new List<T>();
         }
         /// <summary>
         /// Перегрузка оператора сложения
@@ -58,11 +59,11 @@ namespace WindowsFormsPlane
         /// <returns></returns>
         public static bool operator +(Hangar<T> h, T plane)
         {
-            if(h._places.Count >= h._maxCount)
+            if (h._places.Count >= h._maxCount)
             {
                 return false;
             }
-            
+
             h._places.Add(plane);
             return true;
         }
@@ -84,6 +85,7 @@ namespace WindowsFormsPlane
             h._places.RemoveAt(index);
             return plane;
         }
+
 
         /// <summary>
         /// Метод отрисовки парковки
@@ -117,5 +119,21 @@ namespace WindowsFormsPlane
                (pictureHeight / _placeSizeHeight) * _placeSizeHeight);
             }
         }
+
+        /// <summary>
+        /// Функция получения элементы из списка
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public T GetNext(int index)
+        {
+            if (index < 0 || index >= _places.Count)
+            {
+                return null;
+            }
+            return _places[index];
+        }
     }
 }
+
+

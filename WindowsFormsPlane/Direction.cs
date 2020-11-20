@@ -12,6 +12,5 @@ namespace WindowsFormsPlane
         Down,
         Left,
         Right
-
     }
 }
