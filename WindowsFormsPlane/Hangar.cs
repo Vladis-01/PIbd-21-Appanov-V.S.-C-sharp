@@ -76,7 +76,7 @@ namespace WindowsFormsPlane
         /// <returns></returns>
         public static T operator -(Hangar<T> h, int index)
         {
-            if (index < -1 || index >= h._places.Count)
+            if (index < -1 || index > h._places.Count)
             {
                 return null;
             }
