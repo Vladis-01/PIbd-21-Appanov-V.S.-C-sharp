@@ -59,21 +59,23 @@ namespace WindowsFormsPlane
                 hangarStages.Remove(name);
             }
         }
-		/// <summary>
-		/// Доступ к парковке
-		/// </summary>
-		/// <param name="ind"></param>
-		/// <returns></returns>
-		public Hangar<Vehicle> this[string ind]
-		{
-			get
-			{
-				if (hangarStages.ContainsKey(ind))
-				{
-					return hangarStages[ind];
-				}
-				return null;
-			}
-		}
-	}
+        /// <summary>
+        /// Доступ к парковке
+        /// </summary>
+        /// <param name="ind"></param>
+        /// <returns></returns>
+        public Hangar<Vehicle> this[string ind]
+        {
+            get
+            {
+                if (hangarStages.ContainsKey(ind))
+                {
+                    return hangarStages[ind];
+                }
+                return null;
+            }
+
+        }
+
+    }
 }

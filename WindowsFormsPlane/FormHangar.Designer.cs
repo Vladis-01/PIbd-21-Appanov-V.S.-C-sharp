@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.pictureBoxHangar = new System.Windows.Forms.PictureBox();
-            this.buttonSetBomberPlane = new System.Windows.Forms.Button();
             this.buttonSetPlane = new System.Windows.Forms.Button();
             this.groupBoxParking = new System.Windows.Forms.GroupBox();
             this.buttonPickUpPlane = new System.Windows.Forms.Button();
@@ -53,25 +52,13 @@
             this.pictureBoxHangar.TabIndex = 0;
             this.pictureBoxHangar.TabStop = false;
             // 
-            // buttonSetBomberPlane
-            // 
-            this.buttonSetBomberPlane.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSetBomberPlane.Location = new System.Drawing.Point(894, 64);
-            this.buttonSetBomberPlane.Name = "buttonSetBomberPlane";
-            this.buttonSetBomberPlane.Size = new System.Drawing.Size(105, 57);
-            this.buttonSetBomberPlane.TabIndex = 1;
-            this.buttonSetBomberPlane.Text = "Припарковать бомбардировщик";
-            this.buttonSetBomberPlane.UseVisualStyleBackColor = true;
-            this.buttonSetBomberPlane.Click += new System.EventHandler(this.buttonSetBomberPlane_Click);
-            // 
             // buttonSetPlane
             // 
             this.buttonSetPlane.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSetPlane.Location = new System.Drawing.Point(895, 12);
             this.buttonSetPlane.Name = "buttonSetPlane";
-            this.buttonSetPlane.Size = new System.Drawing.Size(104, 54);
+            this.buttonSetPlane.Size = new System.Drawing.Size(104, 87);
             this.buttonSetPlane.TabIndex = 2;
             this.buttonSetPlane.Text = "Припарковать самолет";
             this.buttonSetPlane.UseVisualStyleBackColor = true;
@@ -173,7 +160,6 @@
             this.Controls.Add(this.listBoxHangars);
             this.Controls.Add(this.groupBoxParking);
             this.Controls.Add(this.buttonSetPlane);
-            this.Controls.Add(this.buttonSetBomberPlane);
             this.Controls.Add(this.pictureBoxHangar);
             this.Name = "FormHangar";
             this.Text = "FormHangar";
@@ -188,7 +174,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxHangar;
-        private System.Windows.Forms.Button buttonSetBomberPlane;
         private System.Windows.Forms.Button buttonSetPlane;
         private System.Windows.Forms.GroupBox groupBoxParking;
         private System.Windows.Forms.Button buttonPickUpPlane;

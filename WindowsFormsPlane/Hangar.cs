@@ -20,7 +20,7 @@ namespace WindowsFormsPlane
         /// <summary>
         /// Максимальное количество мест на парковке
         /// </summary>
-        private readonly int _maxCount;
+        private readonly int _maxCount = 12;
 
         private readonly int pictureWidth;
         /// <summary>
@@ -44,7 +44,6 @@ namespace WindowsFormsPlane
         {
             int width = picWidth / _placeSizeWidth;
             int height = picHeight / _placeSizeHeight;
-            _maxCount = width * height;
             _places = new List<T>();
             pictureWidth = picWidth;
             pictureHeight = picHeight;
@@ -62,7 +61,8 @@ namespace WindowsFormsPlane
             if(h._places.Count >= h._maxCount)
             {
                 return false;
-            }            
+            }
+            
             h._places.Add(plane);
             return true;
         }
@@ -76,7 +76,7 @@ namespace WindowsFormsPlane
     /// <returns></returns>
     public static T operator -(Hangar<T> h, int index)
     {
-        if (index < -1 || index > h._places.Count)
+        if (index < -1 || index >= h._places.Count)
         {
             return null;
         }

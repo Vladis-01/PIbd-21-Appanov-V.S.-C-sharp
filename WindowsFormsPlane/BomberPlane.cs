@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace WindowsFormsPlane
 {
     class BomberPlane : Plane
-    {       
+    {
+        
         public Color DopColor { private set; get; }
         /// <summary>
         /// Признак наличия переднего спойлера
@@ -81,6 +82,9 @@ namespace WindowsFormsPlane
                     pointEngine1,
                     pointEngine2,
                     pointEngine3
+
+
+
                 };
 
                 Point[] PointsEngine2 ={
@@ -91,7 +95,18 @@ namespace WindowsFormsPlane
                 g.FillPolygon(myBrush2, PointsEngine1);
                 g.FillPolygon(myBrush2, PointsEngine2);
             }
+
             base.DrawTransport(g);
         }
+
+        /// <summary>
+        /// Смена дополнительного цвета
+        /// </summary>
+        /// <param name="color"></param>
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
+        }
+
     }
 }

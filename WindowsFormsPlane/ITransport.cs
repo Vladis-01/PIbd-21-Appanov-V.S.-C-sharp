@@ -12,6 +12,7 @@ namespace WindowsFormsPlane
         /// <param name="height">Высота картинки</param>
         void SetPosition(int x, int y, int width, int height);
 
+
  /// <summary>
  /// Изменение направления пермещения
  /// </summary>
@@ -22,5 +23,11 @@ namespace WindowsFormsPlane
         /// </summary>
         /// <param name="g"></param>
         void DrawTransport(Graphics g);
+
+        /// <summary>
+        /// Смена основного цвета
+        /// </summary>
+        /// <param name="color"></param>
+        void SetMainColor(Color color);
     }
 }
