@@ -29,8 +29,7 @@ namespace WindowsFormsPlane
         public float Weight { protected set; get; }
         /// <summary>
         /// Основной цвет кузова
-        /// </summary>
-        
+        /// </summary>    
         public Color MainColor { protected set; get; }
 
         public void SetPosition(int x, int y, int width, int height)
