@@ -24,7 +24,7 @@ namespace WindowsFormsPlane
  /// <summary>
  /// Высота окна отрисовки
  /// </summary>
- private readonly int pictureHeight;
+        private readonly int pictureHeight;
         /// <summary>
         /// Конструктор
         /// </summary>

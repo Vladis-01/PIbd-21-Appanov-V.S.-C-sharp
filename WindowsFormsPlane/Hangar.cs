@@ -67,29 +67,29 @@ namespace WindowsFormsPlane
             return true;
         }
 
-    /// <summary>
-    /// Перегрузка оператора вычитания
-    /// Логика действия: с парковки забираем автомобиль
-    /// </summary>
-    /// <param name="p">Парковка</param>
-    /// <param name="index">Индекс места, с которого пытаемся извлечь объект</param>
-    /// <returns></returns>
-    public static T operator -(Hangar<T> h, int index)
-    {
-        if (index < -1 || index > h._places.Count)
+        /// <summary>
+        /// Перегрузка оператора вычитания
+        /// Логика действия: с парковки забираем автомобиль
+        /// </summary>
+        /// <param name="p">Парковка</param>
+        /// <param name="index">Индекс места, с которого пытаемся извлечь объект</param>
+        /// <returns></returns>
+        public static T operator -(Hangar<T> h, int index)
         {
-            return null;
+            if (index < -1 || index > h._places.Count)
+            {
+                return null;
+            }
+            T plane = h._places[index];
+            h._places.RemoveAt(index);
+            return plane;
         }
-        T plane = h._places[index];
-        h._places.RemoveAt(index);
-        return plane;
-    }
 
-    /// <summary>
-    /// Метод отрисовки парковки
-    /// </summary>
-    /// <param name="g"></param>
-    public void Draw(Graphics g)
+        /// <summary>
+        /// Метод отрисовки парковки
+        /// </summary>
+        /// <param name="g"></param>
+        public void Draw(Graphics g)
         {
             DrawMarking(g);
             for (int i = 0; i < _places.Count; ++i)

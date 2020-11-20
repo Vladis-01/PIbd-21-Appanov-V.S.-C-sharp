@@ -60,7 +60,6 @@ namespace WindowsFormsPlane
                 g.FillRectangle(myBrush2, _startPosX + 35, _startPosY + 85, 20, 2);
                 g.FillRectangle(myBrush2, _startPosX + 35, _startPosY + 90, 20, 2);
                 g.FillRectangle(myBrush2, _startPosX + 35, _startPosY + 95, 20, 2);
-
             }
 
             //доп двигатели
