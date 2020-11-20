@@ -92,5 +92,14 @@ namespace WindowsFormsPlane
             }
             base.DrawTransport(g);
         }
+
+        /// <summary>
+        /// Смена дополнительного цвета
+        /// </summary>
+        /// <param name="color"></param>
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
+        }
     }
 }

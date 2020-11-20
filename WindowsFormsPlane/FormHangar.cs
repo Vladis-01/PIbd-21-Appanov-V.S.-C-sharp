@@ -16,6 +16,7 @@ namespace WindowsFormsPlane
         /// Объект от класса-парковки
         /// </summary>
         private readonly HangarCollection hangarCollection;
+
         public FormHangar()
         {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace WindowsFormsPlane
 pictureBoxHangar.Height);
 
         }
+
         /// <summary>
         /// Заполнение listBoxLevels
         /// </summary>
@@ -53,14 +55,14 @@ pictureBoxHangar.Height);
         {
             if (listBoxHangars.SelectedIndex > -1)
             {//если выбран один из пуктов в listBox (при старте программы ни один пункт не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементуlistBox)
- Bitmap bmp = new Bitmap(pictureBoxHangar.Width,
+                Bitmap bmp = new Bitmap(pictureBoxHangar.Width,
 pictureBoxHangar.Height);
                 Graphics gr = Graphics.FromImage(bmp);
                 hangarCollection[listBoxHangars.SelectedItem.ToString()].Draw(gr);
                 pictureBoxHangar.Image = bmp;
             }
-        }
 
+        }
         /// <summary>
         /// Обработка нажатия кнопки "Добавить парковку"
         /// </summary>
@@ -97,21 +99,23 @@ pictureBoxHangar.Height);
 
 		private void buttonSetPlane_Click(object sender, EventArgs e)
         {
-            if (listBoxHangars.SelectedIndex > -1)
+            var formPlaneConfig = new FormPlaneConfig();
+            formPlaneConfig.AddEvent(AddPlane);
+            formPlaneConfig.Show();
+
+        }
+
+        private void AddPlane(Vehicle plane)
+        {
+            if (plane != null && listBoxHangars.SelectedIndex > -1)
             {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
+                if ((hangarCollection[listBoxHangars.SelectedItem.ToString()]) + plane)
                 {
-                    var car = new Plane(100, 1000, dialog.Color);
-                    if (hangarCollection[listBoxHangars.SelectedItem.ToString()] +
-                   car)
-                    {
-                        Draw();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Парковка переполнена");
-                    }
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Машину не удалось поставить");
                 }
             }
         }
@@ -159,11 +163,13 @@ pictureBoxHangar.Height);
             }
 
         }
+
         /// <summary>
         /// Метод обработки выбора элемента на listBoxLevels
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+
         private void listBoxHangars_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             Draw();
