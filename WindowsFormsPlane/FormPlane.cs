@@ -32,6 +32,7 @@ namespace WindowsFormsPlane
 			Draw();
 	    }
 
+
 		/// <summary>
 		/// Метод отрисовки машины
 		/// </summary>

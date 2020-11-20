@@ -30,6 +30,7 @@ namespace WindowsFormsPlane
         /// <summary>
         /// Основной цвет кузова
         /// </summary>
+        
         public Color MainColor { protected set; get; }
         public void SetPosition(int x, int y, int width, int height)
         {
@@ -37,7 +38,6 @@ namespace WindowsFormsPlane
             _startPosY = y;
             _pictureWidth = width;
             _pictureHeight = height;
-
         }
         public abstract void DrawTransport(Graphics g);
         public abstract void MoveTransport(Direction direction);
