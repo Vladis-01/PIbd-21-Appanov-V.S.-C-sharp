@@ -12,7 +12,6 @@ namespace WindowsFormsPlane
         /// <param name="height">Высота картинки</param>
         void SetPosition(int x, int y, int width, int height);
 
-
  /// <summary>
  /// Изменение направления пермещения
  /// </summary>

@@ -48,7 +48,6 @@ pictureBoxHangar.Height);
             }
         }
 
-
         /// <summary>
         /// Метод отрисовки парковки
         /// </summary>
@@ -64,7 +63,6 @@ pictureBoxHangar.Height);
             }
 
         }
-
         /// <summary>
         /// Обработка нажатия кнопки "Добавить парковку"
         /// </summary>
@@ -99,7 +97,6 @@ pictureBoxHangar.Height);
 			}
 		}
 
-
 		private void buttonSetPlane_Click(object sender, EventArgs e)
         {
             var formPlaneConfig = new FormPlaneConfig();
@@ -122,7 +119,6 @@ pictureBoxHangar.Height);
                 }
             }
         }
-
 
         private void buttonSetBomberPlane_Click(object sender, EventArgs e)
         {

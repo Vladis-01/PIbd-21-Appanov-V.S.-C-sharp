@@ -31,8 +31,6 @@ namespace WindowsFormsPlane
                     ((Panel)item).MouseDown += panelColor_MouseDown;
                 }
             }
-
-
             buttonCancel.Click += (object sender, EventArgs e) => { Close(); };
         }
 
