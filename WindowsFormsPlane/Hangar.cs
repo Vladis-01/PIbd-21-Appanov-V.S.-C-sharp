@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsPlane
 {
-    class Hangar<T> where T : class, ITransport
+    class Hangar<T> : IEnumerator<T>, IEnumerable<T> where T : class, ITransport
     {
         /// <summary>
         /// Массив объектов, которые храним
@@ -40,6 +41,11 @@ namespace WindowsFormsPlane
         /// </summary>
         /// <param name="picWidth">Рамзер парковки - ширина</param>
         /// <param name="picHeight">Рамзер парковки - высота</param>
+        
+        private int _currentIndex;
+        public T Current => _places[_currentIndex];
+        object IEnumerator.Current => _places[_currentIndex];
+
         public Hangar(int picWidth, int picHeight)
         {
             int width = picWidth / _placeSizeWidth;
@@ -48,6 +54,7 @@ namespace WindowsFormsPlane
             pictureWidth = picWidth;
             pictureHeight = picHeight;
             _places = new List<T>();
+            _currentIndex = -1;
         }
         /// <summary>
         /// Перегрузка оператора сложения
@@ -62,6 +69,10 @@ namespace WindowsFormsPlane
             if (h._places.Count >= h._maxCount)
             {
                 throw new HangarOverflowException();
+            }
+            if (h._places.Contains(plane))
+            {
+                throw new HangarAlreadyHaveException();
             }
 
             h._places.Add(plane);
@@ -132,6 +143,47 @@ namespace WindowsFormsPlane
                 return null;
             }
             return _places[index];
+        }
+
+        /// <summary>
+        /// Сортировка автомобилей на парковке
+        /// </summary>
+        public void Sort() => _places.Sort((IComparer<T>)new PlaneComparer());
+        /// <summary>
+        /// Метод интерфейса IEnumerator, вызываемый при удалении объекта
+        /// </summary>
+        public void Dispose()
+        {
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerator для перехода к следующему элементу или началу коллекции
+        /// </summary>
+        /// <returns></returns>
+        public bool MoveNext()
+        {
+            // Реализовать логику
+            return (++_currentIndex < _places.Count);
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerator для сброса и возврата к началу коллекции
+        /// </summary>
+        public void Reset()
+        {
+            _currentIndex = -1;
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerable
+        /// </summary>
+        public IEnumerator<T> GetEnumerator()
+        {
+            return this;
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerable
+        /// </summary>
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this;
         }
     }
 }

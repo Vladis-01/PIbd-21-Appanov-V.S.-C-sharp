@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsPlane
 {
-    class BomberPlane : Plane
+    class BomberPlane : Plane, IEquatable<BomberPlane>
     {     
         public Color DopColor { private set; get; }
         /// <summary>
@@ -123,6 +123,64 @@ namespace WindowsFormsPlane
         {
             return
            $"{base.ToString()}{separator}{DopColor.Name}{separator}{Bombs}{separator}{TurboEngine}";
+        }
+
+        public bool Equals(BomberPlane other)
+        {
+            // Реализовать метод сравнения для дочернего класса
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return false;
+            }
+            if (Bombs != other.Bombs)
+            {
+                return false;
+            }
+            if (TurboEngine != other.TurboEngine)
+            {
+                return false;
+            }
+            return true;
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+            return false;
+            }
+            if (!(obj is BomberPlane planeObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(planeObj);
+            }
         }
     }
 }
