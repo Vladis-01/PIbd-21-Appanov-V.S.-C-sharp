@@ -140,6 +140,11 @@ pictureBoxHangar.Height);
                     MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK,
                    MessageBoxIcon.Error);
                 }
+                catch (HangarAlreadyHaveException ex)
+                {
+                    MessageBox.Show(ex.Message, "Дублирование", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                }
                 catch (Exception ex)
                 {
                     logger.Warn($"Неизвестная ошибка");
@@ -234,6 +239,16 @@ pictureBoxHangar.Height);
                     MessageBox.Show(ex.Message, "Неизвестная ошибка при загрузке",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            if (listBoxHangars.SelectedIndex > -1)
+            {
+                hangarCollection[listBoxHangars.SelectedItem.ToString()].Sort();
+                Draw();
+                logger.Info("Сортировка уровней");
             }
         }
     }

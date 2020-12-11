@@ -62,6 +62,7 @@ namespace WindowsFormsPlane
             this.planeWidth = planeWidth;
             this.planeHeight = planeHeight;
         }
+
         public override void MoveTransport(Direction direction)
         {
             float step = MaxSpeed * 100 / Weight;
@@ -97,6 +98,7 @@ namespace WindowsFormsPlane
                     break;
             }
         }
+
         public override void DrawTransport(Graphics g)
         {
             System.Drawing.SolidBrush myBrush = new System.Drawing.SolidBrush(MainColor);
@@ -129,6 +131,51 @@ namespace WindowsFormsPlane
         public override string ToString()
         {
             return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.Name}";
+        }
+
+        public bool Equals(Plane other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            return true;
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Plane planeObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(planeObj);
+            }
         }
     }
 }
