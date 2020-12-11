@@ -61,7 +61,7 @@ namespace WindowsFormsPlane
         {
             if (h._places.Count >= h._maxCount)
             {
-                return false;
+                throw new HangarOverflowException();
             }
 
             h._places.Add(plane);
@@ -79,7 +79,7 @@ namespace WindowsFormsPlane
         {
             if (index < -1 || index > h._places.Count)
             {
-                return null;
+                throw new HangarNotFoundException(index);
             }
             T plane = h._places[index];
             h._places.RemoveAt(index);
