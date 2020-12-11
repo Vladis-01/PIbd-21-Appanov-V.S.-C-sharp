@@ -84,7 +84,7 @@ namespace WindowsFormsPlane
         /// </summary>
         /// <param name="filename">Путь и имя файла</param>
         /// <returns></returns>
-        public bool SaveData(string filename)
+        public void SaveData(string filename)
         {
             if (File.Exists(filename))
             {
@@ -118,18 +118,17 @@ namespace WindowsFormsPlane
                 }
             }
             streamWriter.Close();
-            return true;
         }
         /// <summary>
         /// Загрузка нформации по автомобилям на парковках из файла
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public bool LoadData(string filename)
+        public void LoadData(string filename)
         {
             if (!File.Exists(filename))
             {
-                return false;
+                throw new FileNotFoundException();
             }
 
             StreamReader streamReader = new StreamReader(filename);
@@ -143,7 +142,7 @@ namespace WindowsFormsPlane
             else
             {
                 //если нет такой записи, то это не те данные
-                return false;
+                throw new FileFormatException();
             }
             Vehicle plane = null;
             string key = string.Empty;
@@ -173,10 +172,9 @@ namespace WindowsFormsPlane
                 var result = hangarStages[key] + plane;
                 if (!result)
                 {
-                    return false;
+                    throw new NullReferenceException();
                 }
             }
-            return true;
         }
     }
 }

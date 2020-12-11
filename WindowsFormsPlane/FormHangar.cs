@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,12 +18,17 @@ namespace WindowsFormsPlane
         /// </summary>
         private readonly HangarCollection hangarCollection;
 
+        /// <summary>
+        /// Логгер
+        /// </summary>
+        private readonly Logger logger;
+
         public FormHangar()
         {
             InitializeComponent();
             hangarCollection = new HangarCollection(pictureBoxHangar.Width,
 pictureBoxHangar.Height);
-
+            logger = LogManager.GetCurrentClassLogger();
         }
 
         /// <summary>
@@ -73,10 +79,12 @@ pictureBoxHangar.Height);
         {
             if (string.IsNullOrEmpty(textBoxHangars.Text))
             {
-                MessageBox.Show("Введите название парковки", "Ошибка",
+                logger.Warn("Не введено название ангара");
+                MessageBox.Show("Введите название ангара", "Ошибка",
                MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            logger.Info($"Добавили ангар {textBoxHangars.Text}");
             hangarCollection.AddHangar(textBoxHangars.Text);
             ReloadLevels();
         }
@@ -92,7 +100,8 @@ pictureBoxHangar.Height);
 				if (MessageBox.Show($"Удалить парковку { listBoxHangars.SelectedItem.ToString()}?", "Удаление", MessageBoxButtons.YesNo,
 		   MessageBoxIcon.Question) == DialogResult.Yes)
 				{
-					hangarCollection.DelHangar(listBoxHangars.Text);
+                    logger.Info($"Удалили ангар{ listBoxHangars.SelectedItem.ToString()}");
+                    hangarCollection.DelHangar(listBoxHangars.SelectedItem.ToString());
 					ReloadLevels();
 				}
 			}
@@ -110,13 +119,32 @@ pictureBoxHangar.Height);
         {
             if (plane != null && listBoxHangars.SelectedIndex > -1)
             {
-                if ((hangarCollection[listBoxHangars.SelectedItem.ToString()]) + plane)
+                try
                 {
+                    if ((hangarCollection[listBoxHangars.SelectedItem.ToString()]) +
+                   plane)
+                    {
+                        Draw();
+                        logger.Info($"Добавлен самолет {plane}");
+                    }
+                    else
+                    {
+                        logger.Warn("Самолет не удалось поставить");
+                        MessageBox.Show("Самолет не удалось поставить");
+                    }
                     Draw();
                 }
-                else
+                catch (HangarOverflowException ex)
                 {
-                    MessageBox.Show("Машину не удалось поставить");
+                    logger.Warn($"Переполнение");
+                    MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    logger.Warn($"Неизвестная ошибка");
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -125,27 +153,43 @@ pictureBoxHangar.Height);
         {
             if (listBoxHangars.SelectedIndex > -1 && maskedTextBoxPlace.Text != "")
             {
-                var plane = hangarCollection[listBoxHangars.SelectedItem.ToString()] -
-               Convert.ToInt32(maskedTextBoxPlace.Text);
-                if (plane != null)
+                try
                 {
-                    FormPlane form = new FormPlane();
-                    form.SetPlane(plane);
-                    form.ShowDialog();
+                    var plane =
+                   hangarCollection[listBoxHangars.SelectedItem.ToString()] -
+                   Convert.ToInt32(maskedTextBoxPlace.Text);
+                    if (plane != null)
+                    {
+                        FormPlane form = new FormPlane();
+                        form.SetPlane(plane);
+                        form.ShowDialog();
+                        logger.Info($"Изъят самолет {plane} с места{ maskedTextBoxPlace.Text}");
+                    Draw();
+                    }
                 }
-                Draw();
+                catch (HangarNotFoundException ex)
+                {
+                    logger.Warn($"Самолет на месте { maskedTextBoxPlace.Text} не найден");
+                    MessageBox.Show(ex.Message, "Не найдено", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    logger.Warn($"Неизвестная ошибка");
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
         }
-
         /// <summary>
         /// Метод обработки выбора элемента на listBoxLevels
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-
         private void listBoxHangars_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            logger.Info($"Перешли в ангар{ listBoxHangars.SelectedItem.ToString()}");
             Draw();
         }
 
@@ -153,16 +197,20 @@ pictureBoxHangar.Height);
         {
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                if (hangarCollection.SaveData(saveFileDialog.FileName))
+                try
                 {
+                    hangarCollection.SaveData(saveFileDialog.FileName);
                     MessageBox.Show("Сохранение прошло успешно", "Результат",
-                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    logger.Info("Сохранено в файл " + saveFileDialog.FileName);
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Не сохранилось", "Результат",
+                    logger.Warn("Неизвестная ошибка при сохранении");
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении",
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
             }
         }
 
@@ -170,17 +218,21 @@ pictureBoxHangar.Height);
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                if (hangarCollection.LoadData(openFileDialog.FileName))
+                try
                 {
+                    hangarCollection.LoadData(openFileDialog.FileName);
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
-                   MessageBoxIcon.Information);
+                    MessageBoxIcon.Information);
+                    logger.Info("Загружено из файла " + openFileDialog.FileName);
                     ReloadLevels();
                     Draw();
                 }
-                else
+
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
+                    logger.Warn("Неизвестная ошибка при загрузке");
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при загрузке",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
